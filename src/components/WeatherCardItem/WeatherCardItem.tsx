@@ -9,8 +9,9 @@ interface WeatherCardItemProps {
 
 class WeatherCardItem extends React.Component<WeatherCardItemProps> {
   render() {
-    const item = this.props.item;
+    const { item } = this.props;
     const icon = selectWeatherIcon(item.weather.main);
+
     return (
       <div className="weather-card-item">
         <div>{item.day}</div>

@@ -7,6 +7,7 @@ export const fetchWeatherData = async (city: string | { lat: number; lng: number
   if (typeof city === 'object') {
     url = `${baseUrl}/weather?lat=${city.lat}&lon=${city.lng}&appid=${REACT_APP_WEATHER_API_KEY}`;
   }
+  
   return await (await fetch(url)).json();
 };
 

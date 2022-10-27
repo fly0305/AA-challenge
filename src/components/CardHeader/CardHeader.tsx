@@ -4,12 +4,12 @@ import { clsx } from "clsx";
 type HeaderProps = {
   cities: string[];
   current: string;
-  setCity: (country: string) => void;
+  setCity: (city: string) => void;
 };
 
 class CardHeader extends React.Component<HeaderProps> {
-  setCity = (country: string) => {
-    this.props.setCity(country);
+  setCity = (city: string) => {
+    this.props.setCity(city);
   };
 
   render() {

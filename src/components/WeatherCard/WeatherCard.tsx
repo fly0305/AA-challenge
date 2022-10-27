@@ -9,7 +9,7 @@ interface WeatherCardProps {
 
 class WeatherCard extends React.Component<WeatherCardProps> {
   render() {
-    let data = this.props.data.slice(-4);
+    let { data } = this.props;
     return (
       <div className="weather-card">
         {data.map((item, index) => (

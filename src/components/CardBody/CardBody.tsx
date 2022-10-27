@@ -14,15 +14,19 @@ interface CardBodyProps extends StateProps {}
 
 class CardBody extends React.Component<CardBodyProps> {
   render() {
-    let forecastData = this.props.forecastData;
+    let { forecastData } = this.props;
+
+    if (!forecastData?.length) {
+      return null;
+    }
+
+    let todayData = forecastData[0];
+    let nextDaysData = forecastData.slice(-4);
+
     return (
       <div className="body">
-        {forecastData?.length && (
-          <React.Fragment>
-            <CurrentDayCard data={forecastData[0]} />
-            <WeatherCard data={forecastData} />
-          </React.Fragment>
-        )}
+        <CurrentDayCard data={todayData} />
+        <WeatherCard data={nextDaysData} />
       </div>
     );
   }
