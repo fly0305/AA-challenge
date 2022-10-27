@@ -11,6 +11,7 @@ import Spinner from "./components/Spinner";
 
 import "@fontsource/work-sans";
 import "@fontsource/teko";
+import "./app.less";
 
 const cities = ["OTTAWA", "TORONTO", "BURNABY"];
 
@@ -36,9 +37,11 @@ class App extends React.Component<IAppProps, AppState> {
   interval: NodeJS.Timer | null = null;
 
   componentDidMount(): void {
+    this.props.fetchWeather(this.state.city);
+
     this.interval = setInterval(() => {
       this.props.fetchWeather(this.state.city);
-    }, 5000);
+    }, 10000);
   }
 
   componentWillUnmount(): void {
@@ -59,18 +62,12 @@ class App extends React.Component<IAppProps, AppState> {
     const { loading } = this.props;
     return (
       <div className="app">
-        {loading ? (
-          <Spinner />
-        ) : (
-          <React.Fragment>
-            <CardHeader
-              cities={cities}
-              setCity={this.setCity}
-              current={this.state.city}
-            />
-            <CardBody />
-          </React.Fragment>
-        )}
+        <CardHeader
+          cities={cities}
+          setCity={this.setCity}
+          current={this.state.city}
+        />
+        {loading ? <Spinner /> : <CardBody />}
       </div>
     );
   }
