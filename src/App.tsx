@@ -11,7 +11,7 @@ import Spinner from "./components/Spinner";
 
 import "@fontsource/work-sans";
 import "@fontsource/teko";
-import "./app.less";
+// import "./app.less";
 
 const cities = ["OTTAWA", "TORONTO", "BURNABY"];
 
