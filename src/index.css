@@ -1,15 +1,123 @@
-@import './app.less';
 
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.app {
+	 background-color: #eef6fb;
+	 display: flex;
+	 justify-content: center;
+	 align-items: center;
+	 height: 100vh;
+	 flex-direction: column;
+	 font-family: "Roboto";
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+ .app .body {
+	 margin-top: 20px;
+	 background-color: white;
+	 border: 1px solid #eef6fb;
+	 border-radius: 8px;
+	 box-shadow: 10px #e1e9ef;
+	 padding: 3px;
+	 width: 600px;
 }
+ @media only screen and (min-width: 300px) and (max-width: 660px) {
+	 .app .body {
+		 width: 300px;
+	}
+}
+ .app .header {
+	 display: flex;
+	 justify-content: center;
+	 flex-direction: row;
+	 width: 100%;
+}
+ @media only screen and (min-width: 300px) and (max-width: 660px) {
+	 .app .header {
+		 width: 300px;
+		 padding: 0;
+	}
+}
+ .app .header .city {
+	 margin-left: 30px;
+	 font-size: large;
+	 list-style-type: none;
+	 cursor: pointer;
+}
+ @media only screen and (min-width: 300px) and (max-width: 660px) {
+	 .app .header .city {
+		 margin-left: 0;
+		 font-size: medium;
+		 margin-right: 10px;
+	}
+}
+ .app .current-card {
+	 background-color: #eef6fb;
+	 text-align: center;
+	 width: 100%;
+	 border-top-left-radius: 5px;
+	 border-top-right-radius: 5px;
+}
+ .app .current-card-body {
+	 display: flex;
+	 flex-direction: column;
+}
+ .app .current-card-content {
+	 display: flex;
+	 flex-direction: row;
+	 width: 100%;
+	 justify-content: center;
+	 align-items: center;
+}
+ .app .current-card-title {
+	 padding-bottom: 0;
+	 margin-bottom: 0;
+	 font-size: 16px;
+}
+ .app .weather-detail {
+	 display: flex;
+	 flex-direction: column;
+}
+ .app .weather-icon {
+	 width: 100px;
+	 height: 100px;
+}
+ .app .weather-detail-highlight {
+	 font-weight: bold;
+	 font-size: 24px;
+	 font-family: "Teko";
+}
+ .app .weather-card {
+	 margin-top: 5px;
+	 background-color: white;
+	 display: flex;
+	 flex-direction: row;
+	 justify-content: space-between;
+}
+ .app .weather-card-item {
+	 display: flex;
+	 justify-content: center;
+	 align-items: center;
+	 flex-direction: column;
+	 background-color: #eef6fb;
+	 min-width: 145px;
+	 padding: 20px 0 20px 0;
+}
+ @media only screen and (min-width: 300px) and (max-width: 660px) {
+	 .app .weather-card-item {
+		 min-width: 70px;
+	}
+}
+ .app .weather-card-item:first-child {
+	 border-bottom-left-radius: 5px;
+}
+ .app .weather-card-item:last-child {
+	 border-bottom-right-radius: 5px;
+}
+ .app .active {
+	 color: #5fb0e8;
+	 font-weight: bold;
+}
+ .app .loader {
+	 width: 100%;
+	 display: flex;
+	 justify-content: center;
+	 align-items: center;
+}
+ 
