@@ -1,5 +1,5 @@
 # Frontend Challenge
-
+![screenshot](./public/screenshot.png)
 ## About the test
 - Implement a fully functional React app from the mockup. Approximate spacing,
 responsiveness, colors etc. as closely as possible.
@@ -19,9 +19,10 @@ url in your submission.
 - Code is hosted in a public repository, like Github.com
 
 ## Bonus
--  Use of typescript
+- Use of typescript
 - Use of LESS in part or completely
 - Use of React class components instead of functional components
+
 ## Available Scripts
 
 In the project directory, you can run:
