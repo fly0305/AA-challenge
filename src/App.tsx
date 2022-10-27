@@ -5,13 +5,13 @@ import CardHeader from "./components/CardHeader";
 import CardBody from "./components/CardBody";
 import { fetchWeather } from "./store/fetchWeather";
 import { AnyAction } from "redux";
+import { AppStore } from "./store/store";
+import { ThunkDispatch } from "redux-thunk";
+import Spinner from "./components/Spinner";
 
 import "./app.less";
 import "@fontsource/work-sans";
 import "@fontsource/teko";
-import { AppStore } from "./store/store";
-import { ThunkDispatch } from "redux-thunk";
-import Spinner from "./components/Spinner";
 
 const cities = ["OTTAWA", "TORONTO", "BURNABY"];
 
@@ -24,30 +24,40 @@ type StateProps = {
 };
 
 type AppState = {
-  country: string;
+  city: string;
 };
 
 interface IAppProps extends DispatchProps, StateProps {}
 
 class App extends React.Component<IAppProps, AppState> {
   state: AppState = {
-    country: "OTTAWA",
+    city: "OTTAWA",
   };
 
+  interval: NodeJS.Timer | null = null;
+
   componentDidMount(): void {
-    this.props.fetchWeather("OTTAWA");
+    this.interval = setInterval(() => {
+      this.props.fetchWeather(this.state.city);
+    }, 5000);
   }
 
-  setCity = (country: string) => {
+  componentWillUnmount(): void {
+    if (this.interval) {
+      clearInterval(this.interval);
+    }
+  }
+
+  setCity = (city: string) => {
     this.setState({
       ...this.state,
-      country,
+      city,
     });
-    this.props.fetchWeather(country);
+    this.props.fetchWeather(city);
   };
 
   render() {
-    const loading = this.props.loading;
+    const { loading } = this.props;
     return (
       <div className="app">
         {loading ? (
@@ -57,7 +67,7 @@ class App extends React.Component<IAppProps, AppState> {
             <CardHeader
               cities={cities}
               setCity={this.setCity}
-              current={this.state.country}
+              current={this.state.city}
             />
             <CardBody />
           </React.Fragment>
