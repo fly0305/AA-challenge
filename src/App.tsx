@@ -9,7 +9,6 @@ import { AppStore } from "./store/store";
 import { ThunkDispatch } from "redux-thunk";
 import Spinner from "./components/Spinner";
 
-import "./app.less";
 import "@fontsource/work-sans";
 import "@fontsource/teko";
 
