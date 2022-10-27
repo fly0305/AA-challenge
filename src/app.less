@@ -1,0 +1,139 @@
+@primary: rgb(238, 246,251);
+@active: rgb(95,176,232);
+@tablet:    ~"only screen and (min-width: 300px) and (max-width: 660px)";
+
+.app {
+  background-color: @primary;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+  font-family: "Roboto";
+  
+  .body {
+    margin-top: 20px;
+    background-color: white;
+    border: 1px solid @primary;
+    border-radius: 8px;
+    box-shadow: 10px rgb(225, 233, 239);
+    padding: 3px;
+    width: 600px;
+
+    @media @tablet {
+      width: 300px;
+    }
+  }
+  
+  .header {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+    
+    @media @tablet {
+      width: 300px;
+      padding: 0;
+    }
+
+    .city {
+      margin-left: 30px;
+      font-size: large;
+      list-style-type: none;
+      cursor: pointer;
+
+      @media @tablet {
+        margin-left: 0;
+        font-size: medium;
+        margin-right: 10px;
+      }
+    }
+  }
+
+  .current-card {
+    background-color: @primary;
+    text-align: center;
+    width: 100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+
+  .current-card-body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .current-card-content {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .current-card-title {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    font-size: 16px;
+  }
+
+  .weather-detail {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .weather-icon {
+    width: 100px;
+    height: 100px;
+  }
+
+  .weather-detail-highlight {
+    font-weight: bold;
+    font-size: 24px;
+    font-family: "Teko";
+  }
+
+  .weather-card {
+    margin-top: 5px;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .weather-card-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: @primary;
+    min-width: 145px;
+    padding: 20px 0 20px 0;
+    
+    @media @tablet {
+      min-width: 70px;
+    }
+
+    &:first-child {
+      border-bottom-left-radius: 5px;
+    }
+    
+    &:last-child {
+      border-bottom-right-radius: 5px;
+    }
+  }
+
+  .active {
+    color: @active;
+    font-weight: bold;
+  }
+
+  .loader {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+}
+
